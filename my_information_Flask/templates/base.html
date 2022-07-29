@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+        {% block header %}{% endblock %}
+        {% if title %}
+        <title>{{title}} - My Information</title>
+        {% else %}
+        <title>Welcome to My Information</title>
+        {% endif %}
+    </head>
+    <body>
+        <section id="header">
+            <h4>My Information</h4>
+            <div>
+                <ul id="navbar">
+                    <li><a href="/index" class="active">Home</a></li>
+                    {% if current_user.is_anonymous %}
+                        <li><a href="{{url_for('login')}}">Login</a></li>
+                    {% else %}
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                    {% endif %}
+                    <li><a href="/post">Blog</a></li>
+                    <li><a href="about.html">API</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </section>
+        {% block content %} {% endblock %}
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" style="border:1px solid white; height:50px" src="../static/img/contacts.png" alt="contact">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>236 Hoang Quoc Viet, Cau Giay, Ha Noi</p>
+                <p><strong>Phone: </strong>+0211222365/ (+84)963454673</p>
+                <p><strong>Hours: </strong>9:00 - 18:00, Mon - Sat</p>
+            </div>
+        </footer>
+    </body>
+</html>
