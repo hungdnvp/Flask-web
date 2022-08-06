@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=F:\DATA_YEAR_3\Python\flask-tutorial\myproject\myenv
+set VIRTUAL_ENV=F:\DATA_YEAR_3\Flask-webb\Flask-web\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 

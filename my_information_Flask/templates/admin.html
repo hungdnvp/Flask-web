@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if admin == current_user %}
+        <p><a href="{{url_for('edit_profile') }}"> Edit admin profile</a></p>
+    {% endif %}
+    <table>
+        <tr valign = "top">
+            <td><img src="{{ admin.avatar(128) }}" alt="avatar"></td>
+            <td><h1>Admin: {{admin.username }} </h1>
+                {% if admin.about_me %} <p>{{admin.about_me }}</p>{% endif %}
+                {% if admin.last_seen %} <p>Last seen on: {{admin.last_seen}}</p>{% endif %}
+            </td>
+        </tr>
+    </table>
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+{% endblock %}
